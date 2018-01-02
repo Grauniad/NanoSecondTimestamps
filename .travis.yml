@@ -6,10 +6,11 @@ addons:
       - ubuntu-toolchain-r-test
       
     packages:
-      - g++-6
-      - libgtest-dev
       - cmake
       - cmake-data
+      - g++-6
+      - libgtest-dev
+      - valgrind
 
 
 before_install:
@@ -17,8 +18,9 @@ before_install:
   - cd CMakeUtils
   - ./travis/installGTest.sh
   - cd ..
-  - mkdir Build
-  - cd Build; cmake ..
+  - mkdir Build Coverage
+  - cd Build; cmake ..; cd ..
+  - cd Coverage; cmake -DCMAKE_BUILD_TYPE=Coverage --build . ..; cd ..
 
 install:
   - pip install --user cpp-coveralls
@@ -31,7 +33,11 @@ script:
   - make
   - make test
   - ctest -T Memcheck
+  - cd ..
+  - cd Coverage
+  - make test
+  - cd..
   
 after_success:
-  - cd exports/objs/
-  - coveralls --gcov gcov-6 --verbose 
+  - cd Coverage
+  - coveralls -r . -b Coverage -e dep -e Build -e test --gcov gcov-6 --verbose 
