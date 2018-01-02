@@ -18,9 +18,10 @@ before_install:
   - cd CMakeUtils
   - ./travis/installGTest.sh
   - cd ..
-  - mkdir Build Coverage
-  - cd Build; cmake ..; cd ..
-  - cd Coverage; cmake -DCMAKE_BUILD_TYPE=Coverage --build . ..; cd ..
+  - mkdir Build
+  - cd Build
+  - cmake ..
+  - cd ..
 
 install:
   - pip install --user cpp-coveralls
