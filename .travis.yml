@@ -34,11 +34,4 @@ script:
   - make test
   - ctest -T Memcheck
   - cd ..
-  - cd Coverage
-  - make
-  - make test
-  - cd ..
-  
-after_success:
-  - cd Coverage
-  - coveralls -r . -b Coverage -e dep -e Build -e test --gcov gcov-6 --verbose 
+  - ./CMakeUtils/travis/doCoverage.sh
