@@ -37,7 +37,7 @@ script:
   - cd Coverage
   - make
   - make test
-  - cd..
+  - cd ..
   
 after_success:
   - cd Coverage
