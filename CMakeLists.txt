@@ -12,6 +12,7 @@ target_include_directories(Time PUBLIC
     $<BUILD_INTERFACE:${UtilTime_SOURCE_DIR}/include>
     $<INSTALL_INTERFACE:include>
 )
+target_compile_features(Time PUBLIC cxx_std_11)
 set_target_properties(Time PROPERTIES
     PUBLIC_HEADER ${UtilTime_SOURCE_DIR}/include/util_time.h
 )
@@ -21,6 +22,7 @@ set_target_properties(Time PROPERTIES
 #
 add_executable(benchmark src/benchmark.cpp)
 target_link_libraries(benchmark Time)
+target_compile_features(benchmark PRIVATE cxx_std_11)
 
 #
 # Test Configuration
@@ -30,7 +32,7 @@ find_package(GTest REQUIRED)
 
 add_executable(timeTests test/util_time_tests.cpp)
 target_link_libraries(timeTests Time GTest::GTest GTest::Main)
-
+target_compile_features(timeTests PRIVATE cxx_std_11)
 #
 # Installation instructions
 #
