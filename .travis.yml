@@ -1,0 +1,25 @@
+sudo: false
+
+addons:
+  apt:
+    sources:
+      - ubuntu-toolchain-r-test
+      
+    packages:
+      - g++-6
+
+
+before_install:
+  - mkdir Build
+  - cd Build; cmake ..
+
+install:
+  - pip install --user cpp-coveralls
+  
+script: 
+  - g++-6 --version
+  - cd Build; make
+  
+after_success:
+  - cd exports/objs/
+  - coveralls --gcov gcov-6 --verbose 
