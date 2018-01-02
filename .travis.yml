@@ -27,7 +27,10 @@ install:
   
 script: 
   - g++-6 --version
-  - cd Build; make
+  - cd Build
+  - make
+  - make test
+  - ctest -T Memcheck
   
 after_success:
   - cd exports/objs/
