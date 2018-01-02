@@ -35,6 +35,7 @@ script:
   - ctest -T Memcheck
   - cd ..
   - cd Coverage
+  - make
   - make test
   - cd..
   
