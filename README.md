@@ -53,7 +53,7 @@ updateTime = std::chrono::system_clock::now() | 20ns
 gettimeofday(&updateTime, NULL)               | 18ns
 clock_gettime(CLOCK_REALTIME, &updateTime)    | 18ns
 
-(Benchmarks are run in 1 million times in a tight loop. Reported time is total
+(Benchmarks are run 1 million times in a tight loop. Reported time is total
 time / 1e6)
 
 As the Time class supports component level access, it has an additional struct
@@ -73,7 +73,7 @@ timetamps.
 Benchmark            |  Time per itter
 ----------           | ---------------
 Time(isotimestamp)   | 19ns
-Time(nstimestamp     | 20ns
+Time(nstimestamp)    | 20ns
 
 
 ## Build Instructions
