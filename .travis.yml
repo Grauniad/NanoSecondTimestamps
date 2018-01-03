@@ -35,4 +35,4 @@ script:
   - make test
   - ctest -T Memcheck
   - cd ..
-  - ./CMakeUtils/travis/doCoverage.sh
+  - ./CMakeUtils/travis/doCoverage.sh -e src/benchmark.cpp
