@@ -80,3 +80,18 @@ install (
     FILES       UtilTimeConfig.cmake
     DESTINATION lib/cmake/UtilTime
 )
+
+#
+# Configure Coverage Build
+#
+SET(CMAKE_CXX_FLAGS_COVERAGE
+    "${GCC_DEBUG_FLAGS} -fprofile-arcs -ftest-coverage"
+    CACHE STRING "Flags used by the C++ compiler during coverage builds."
+    FORCE )
+SET(CMAKE_C_FLAGS_COVERAGE
+    "${GCC_DEBUG_FLAGS} -fprofile-arcs -ftest-coverage"
+    CACHE STRING "Flags used by the C compiler during coverage builds."
+    FORCE )
+MARK_AS_ADVANCED(
+    CMAKE_CXX_FLAGS_COVERAGE
+    CMAKE_C_FLAGS_COVERAGE)

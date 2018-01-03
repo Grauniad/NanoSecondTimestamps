@@ -24,7 +24,6 @@ before_install:
   - cd ..
 
 install:
-  - pip install --user cpp-coveralls
   - export CXX="g++-6"
   - export CC="gcc-6"
   
