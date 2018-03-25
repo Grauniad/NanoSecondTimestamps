@@ -9,7 +9,6 @@ addons:
       - cmake
       - cmake-data
       - g++-7
-      - libgtest-dev
       - valgrind
 
 
