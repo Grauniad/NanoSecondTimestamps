@@ -14,21 +14,18 @@ addons:
 
 
 before_install:
+  - export CXX="g++-6"
+  - export CC="gcc-6"
   - git clone --recursive https://github.com/Grauniad/CMakeUtils.git
-  - mkdir Build
-  - cd Build
-  - cmake ..
-  - cd ..
+  - g++-6 --version
 
 install:
   - pip install --user cpp-coveralls
-  - export CXX="g++-6"
-  - export CC="gcc-6"
+  - ./buildDeps.sh
   
 script: 
-  - g++-6 --version
+  - ./buildFromDeps.sh
   - cd Build
-  - make
   - make test
   - ctest -T Memcheck
   - cd ..
