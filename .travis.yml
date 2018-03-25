@@ -8,16 +8,16 @@ addons:
     packages:
       - cmake
       - cmake-data
-      - g++-6
+      - g++-7
       - libgtest-dev
       - valgrind
 
 
 before_install:
-  - export CXX="g++-6"
-  - export CC="gcc-6"
+  - export CXX="g++-7"
+  - export CC="gcc-7"
   - git clone https://github.com/Grauniad/CMakeUtils.git
-  - g++-6 --version
+  - g++-7 --version
 
 install:
   - pip install --user cpp-coveralls
