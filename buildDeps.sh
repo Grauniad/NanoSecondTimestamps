@@ -16,5 +16,5 @@ fi
 declare -A depList
 depList[gtest]=https://github.com/google/googletest.git
 
-source deps/CMakeUtils/build_tools/buildDepsCommon.sh || exit 1
+source deps/CMakeUtils/build_tools/buildDepsCommon.sh $@ || exit 1
 
